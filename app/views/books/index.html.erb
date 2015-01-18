@@ -1,0 +1,17 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Oceń Twoje ulubione książki</h1>
+    <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan. Organic drinking vinegar freegan pickled.</p>
+    <p><%= link_to "Zaloguj się aby ocenić", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @books.each do |book| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag book.image.url(:medium), class: 'image'), book %>
+      </div>
+    </div>
+  <% end %>
+</div>
